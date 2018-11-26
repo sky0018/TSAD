@@ -1,0 +1,11 @@
+image: golang
+
+before_script:
+  - mkdir -p $GOPATH/src/code.byted.org/gopkg
+  - cp -r $CI_PROJECT_DIR $GOPATH/src/code.byted.org/gopkg/metrics
+
+test:
+  script:
+  - cd $GOPATH/src/code.byted.org/gopkg/metrics
+  - go get -insecure -v -t ./
+  - go test -v -cover -bench ./

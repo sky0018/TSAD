@@ -1,0 +1,23 @@
+DebugPort: 8486
+
+Manager:
+  LogLevel: "debug"
+  LogPath: "/tmp/tsad_manager.log"
+  ManagerPort: 8386
+  WorkerPort: 8388
+  DSNRead: "ms_data_w:XMYlUh54B1z1DQ7g_laPTucDd45p4wQR@tcp(10.3.23.12:3554)/ms_data?charset=utf8&parseTime=True&loc=Local"
+  DSNWrite: "ms_data_w:XMYlUh54B1z1DQ7g_laPTucDd45p4wQR@tcp(10.3.23.12:3554)/ms_data?charset=utf8&parseTime=True&loc=Local"
+  MysqlLocklDSN: "ms_data_w:XMYlUh54B1z1DQ7g_laPTucDd45p4wQR@tcp(10.3.23.12:3554)/ms_data?charset=utf8&parseTime=True&loc=Local"
+
+Worker:
+  LogLevel: "debug"
+  LogPath: "/tmp/tsad_worker.log"
+  WorkerPort: 8388
+  MysqlDSN: "ms_data_w:XMYlUh54B1z1DQ7g_laPTucDd45p4wQR@tcp(10.3.23.12:3554)/ms_data?charset=utf8&parseTime=True&loc=Local"
+  TSDBAPI: "http://bytetsd-query-server-alert-query.m.byted.org/api/query"
+  TSDBRetry: 3
+  TSDBTimeout: 60000 #60s
+  AlertAddress: "http://ms.byted.org"
+  MaxTasks: 2000
+  WhiteSourceList: []
+  BlackSourceList: [".*ad.gounion.api.*", ".*toutiao.microservice.error_log_consumer.*", ".*avg:go.*numGos.*"]

@@ -1,0 +1,6 @@
+tsad
+.vscode/
+.vscode-upload.json
+config.yml.*
+output
+.idea/
